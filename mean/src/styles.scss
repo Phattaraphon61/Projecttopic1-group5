@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '~@angular/material/theming';
-
+@import 'bulma/css/bulma.css';
 $custom-typography: mat-typography-config(
     $font-family: 'Exo'
 );
