@@ -5,7 +5,7 @@ services:
     build: ./
     image: mean
     ports:
-      - 80:4040
+      - 81:4040
     expose:
       - 4040
     environment:
