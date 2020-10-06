@@ -1,3 +1,4 @@
+import { HomepageComponent } from './../homepage/homepage.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -9,7 +10,7 @@ const routes: Routes = [{
   canActivate: [OnlyAdminUsersGuard],
   children: [{
     path: '',
-    component: AdminComponent,
+    component: HomepageComponent,
   }]
 }];
 

@@ -21,4 +21,8 @@ export class HomepageComponent {
 
     return randomLetter === enteredLetter ? "correct" : "incorrect";
   }
+
+
+
 }
+
