@@ -15,13 +15,17 @@ import { AuthService } from './shared/services';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RankingpageComponent } from './rankingpage/rankingpage.component';
 import { HistorypageComponent } from './historypage/historypage.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function appInitializerFactory(authService: AuthService) {
   return () => authService.checkTheUserOnTheFirstLoad();
 }
 
 @NgModule({
-  imports: [BrowserAnimationsModule, HttpClientModule, SharedModule, AppRoutingModule],
+  imports: [BrowserAnimationsModule, HttpClientModule, SharedModule, AppRoutingModule,BrowserModule,FormsModule,HttpModule,ReactiveFormsModule],
   declarations: [AppComponent, HeaderComponent, HomeComponent, HomepageComponent, RankingpageComponent, HistorypageComponent],
   providers: [
     {
@@ -41,6 +45,6 @@ export function appInitializerFactory(authService: AuthService) {
       deps: [AuthService],
     },
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent,HomeComponent],
 })
 export class AppModule {}

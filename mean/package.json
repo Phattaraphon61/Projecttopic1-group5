@@ -19,7 +19,8 @@
     "@angular/common": "^9.1.4",
     "@angular/compiler": "^9.1.4",
     "@angular/core": "^9.1.4",
-    "@angular/forms": "^9.1.4",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^7.2.16",
     "@angular/material": "^9.2.1",
     "@angular/platform-browser": "^9.1.4",
     "@angular/platform-browser-dynamic": "^9.1.4",
@@ -50,6 +51,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "rxjs": "^6.5.5",
+    "rxjs-compat": "^6.6.3",
     "swagger-ui-express": "^3.0.9",
     "zone.js": "~0.10.3"
   },
