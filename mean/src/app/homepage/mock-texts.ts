@@ -11,7 +11,7 @@ export const TEXTS: Text[] = [
 ];
 
 export const TEXTSTH: Text[] = [
-  { id: 1, text: 'เราเอง' },
+  { id: 1, text: 'สังคมเราในปัจจุบันนี้โลกเราได้มีเทคโนโลยีมาเกี่ยวข้องอย่างมากในชีวิตของคนไทยเรา ทำให้มีความสะดวกในการใช้ชีวิตประจำวันรวมทั้งการสื่อสารด้วย' },
   // { id: 2, text: 'I am 100% Republican. I agree 150% with everything Trump says and does.' },
   // { id: 3, text: `I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.` },
   // { id: 4, text: `Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.` },

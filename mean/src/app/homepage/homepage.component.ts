@@ -55,18 +55,31 @@ export class HomepageComponent {
   }
 
   private resetAllValues() {
-    this.totalTime = null;
-    this.tick = 0;
-    this.subject.next();
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.text = '';
+    this.form = new FormGroup({text: new FormControl(null)});
     this.index = 0;
     this.end = false;
-    this.uncountedErrors = 0;
+    this.tick = null;
+    this.subscription = Subscription.EMPTY;
+    this.totalTime = null;
     this.countTypedEntries = 0;
-    this.text = '';
     this.wpm = 0;
+    this.uncountedErrors  = 0;
+    this.accuracy = 0;
+    this.timer = null;
+    this.subject = new Subject();
+    // this.totalTime = null;
+    // this.tick = 0;
+    // this.subject.next();
+    // if (this.subscription) {
+    //   this.subscription = Subscription.EMPTY;
+    // }
+    // this.index = 0;
+    // this.end = false;
+    // this.uncountedErrors = 0;
+    // this.countTypedEntries = 0;
+    // this.text = '';
+    // this.wpm = 0;
   }
 
 
@@ -112,8 +125,8 @@ export class HomepageComponent {
   public changeText() {
     this.resetAllValues();
     this.initForm();
-    // this.initText();
-    this.initText2()
+    this.initText();
+    // this.initText2()
   }
 
   private getTexts(): Text[] {
@@ -153,6 +166,7 @@ export class HomepageComponent {
       this.uncountedErrors++;
       this.error = true;
     }
+
   }
 
   private calculateWPM() {
