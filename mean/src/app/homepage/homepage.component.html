@@ -45,7 +45,7 @@
         <p class="lead">{{ text }}</p>
         <textarea *ngIf="end===false" (keyup)="onKey($event)" class="form-control" formControlName="text" rows="4" cols="50" id="inputEmail"
           class="form-control" placeholder="Start Test" required autofocus></textarea>
-          <h3 class="display-3" style="color:red" *ngIf="error">Try again</h3>
+          <h3 class="custom-try-again" style="color:red" *ngIf="error">Try again</h3>
           <h3 class="display-3" style="color:green" *ngIf="end">Test finished. WPM: {{wpm | number: '1.0-0'}} words/min. Accuracy: {{ accuracy | number: '1.0-0'}}%</h3>
       </div>
       <div class="container">
