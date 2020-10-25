@@ -2,22 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, BehaviorSubject, EMPTY } from 'rxjs';
-import { tap, pluck } from 'rxjs/operators';
+import { tap, pluck,map } from 'rxjs/operators';
 
-import { User } from '@app/shared/interfaces';
+import { User,Wpm } from '@app/shared/interfaces';
 
 import { TokenStorage } from './token.storage';
 
 interface AuthResponse {
   token: string;
   user: User;
+  wpm:Wpm;
 }
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private user$ = new BehaviorSubject<User | null>(null);
 
-  constructor(private http: HttpClient, private tokenStorage: TokenStorage) {}
+  constructor(private http: HttpClient, private tokenStorage: TokenStorage) { }
 
   login(email: string, password: string): Observable<User> {
     return this.http
@@ -29,6 +30,34 @@ export class AuthService {
         }),
         pluck('user')
       );
+  }
+
+  insertwpm(
+    ownerid: string,
+    fullname: string,
+    email: string,
+    wpm: number,
+    ):Observable<Wpm>{
+    return this.http
+    .post('/api/wpm/insert', {
+      ownerid,
+      fullname,
+      email,
+      wpm,
+    })
+    .pipe(
+      tap(() => {
+
+      }),
+      pluck('wpm')
+    );
+
+  }
+  getdata() {
+    return this.http
+      .get('/api/wpm/all').pipe(
+        map(res => res)
+      )
   }
 
   register(

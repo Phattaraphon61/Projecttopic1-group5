@@ -6,6 +6,8 @@ import { TEXTS, TEXTSTH } from './mock-texts';
 import { Text } from './text.class';
 import { Subscription, Subject } from "rxjs";
 import { TimerObservable } from "rxjs/observable/TimerObservable";
+import { AuthService } from '@app/shared/services';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-homepage',
@@ -13,6 +15,7 @@ import { TimerObservable } from "rxjs/observable/TimerObservable";
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
+  constructor(private authService: AuthService) { }
   // randomText = lorem.sentence();
   // enteredText = "";
 
@@ -149,6 +152,16 @@ export class HomepageComponent {
     const errorRate = this.uncountedErrors / this.totalTime;
     this.accuracy = 100 - ((this.uncountedErrors / this.countTypedEntries) * 100);
     this.wpm = Math.abs(grossWPM - errorRate);
+    const wpms= this.wpm;
+    const helper = new JwtHelperService();
+    var token = localStorage.authToken;
+    const decoded= helper.decodeToken(token);
+    console.log("decodedsssss",decoded)
+
+
+    this.authService.insertwpm(`${decoded._id}`,`${decoded.fullname}`,`${decoded.email}`,wpms).subscribe(data =>{
+      console.log("ได้แล้วววว")
+    })
   }
 
   ngOnDestroy() {
