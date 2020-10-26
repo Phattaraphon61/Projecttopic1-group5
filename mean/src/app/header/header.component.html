@@ -4,6 +4,18 @@
     <span class="example-spacer"></span>
     <a class="links side" routerLink="/auth/login" *ngIf="!user">Login</a>
     <div>
+      <a routerLink="/home" class="keyboard">
+        <mat-icon >keyboard</mat-icon>
+        <span>Typing</span>
+      </a>
+      <a routerLink="/history" class="history">
+        <mat-icon >history</mat-icon>
+        <span>History</span>
+      </a>
+      <a routerLink="/ranking" class="ranking">
+        <mat-icon >emoji_events</mat-icon>
+        <span>Ranking</span>
+      </a>
       <a class="links side" *ngIf="user" [matMenuTriggerFor]="menu">
         <mat-icon>account_circle</mat-icon>{{ user.fullname }}
       </a>

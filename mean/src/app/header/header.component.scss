@@ -20,6 +20,7 @@ header {
       text-align: center;
       padding: 15px;
       &.side {
+        font-size: 20px;
         padding: 0 14px;
       }
     }
@@ -28,10 +29,30 @@ header {
     }
     .mat-icon {
       vertical-align: middle;
-      margin: 0 5px;
+      margin: 5px 5px 18px 5px;
+      font-size: 35px;
+      padding-right: 35px;
     }
     a {
       cursor: pointer;
+      padding: 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover{
+      color: aqua;
+    }
+
+    a.keyboard:hover {
+      color: #1E90FF;
+    }
+
+    a.history:hover {
+      color: 	#d8d8d8;
+    }
+
+    a.ranking:hover{
+      color: gold
     }
   }
- 

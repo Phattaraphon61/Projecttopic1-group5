@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './shared/guards';
 import { HomeComponent } from './home/home.component';
+import { HistorypageComponent } from './historypage/historypage.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'ranking',
     component: RankingpageComponent,
+  },
+  {
+    path:'history',
+    component:HistorypageComponent,
   }
 ];
 
