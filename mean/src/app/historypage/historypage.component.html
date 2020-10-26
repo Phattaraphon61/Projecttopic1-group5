@@ -21,7 +21,7 @@
     <tbody>
       <tr  *ngFor="let item of num">
         <td>{{item+1}}</td>
-        <td>{{value[item].createdAt}}</td>
+        <td>{{value[item].createdAt | date:"วันที่ d เดือน M ปี y เวลา HH:mm:ss"}}</td>
         <td>{{value[item].wpm  | number: '1.0-0'}}</td>
         <td>
           <a class="btn btn-danger btn-xs" (click)="setdata(value[item]._id)">Delete</a>
