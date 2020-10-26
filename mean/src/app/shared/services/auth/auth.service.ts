@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, EMPTY } from 'rxjs';
 import { tap, pluck,map } from 'rxjs/operators';
 
-import { User,Wpm } from '@app/shared/interfaces';
+import { User,Wpm,History } from '@app/shared/interfaces';
 
 import { TokenStorage } from './token.storage';
 
@@ -12,6 +12,7 @@ interface AuthResponse {
   token: string;
   user: User;
   wpm:Wpm;
+  history:History;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -53,13 +54,26 @@ export class AuthService {
     );
 
   }
-  getdata() {
+  // getdata() {
+  //   return this.http
+  //     .get('/api/wpm/all').pipe(
+  //       map(res => res)
+  //     )
+  // }
+
+  delhistory(_id: string){
     return this.http
-      .get('/api/wpm/all').pipe(
+    .get('/api/wpm/del/'+_id).pipe(
+      map(res => res)
+    )
+  }
+  gethistory(onwnerid :string){
+    console.log("มาแล้วว",onwnerid)
+    return this.http
+      .get('/api/wpm/all/'+onwnerid).pipe(
         map(res => res)
       )
   }
-
   getAllranking(){
     return this.http
       .get('/api/wpm/getAllranking').pipe(

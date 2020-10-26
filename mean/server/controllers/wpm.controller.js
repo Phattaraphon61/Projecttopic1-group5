@@ -17,6 +17,11 @@ module.exports = {
   getAll,
   // search,
   getAllranking,
+  delhistory,
+}
+
+async function delhistory(_id){
+   return await Wpm.deleteOne({_id:_id})
 }
 
 async function insert(wpm) {
@@ -42,8 +47,11 @@ async function insert(wpm) {
 //   return await Student.find({sid: sid});
 // }
 
-async function getAll() {
-  return await Wpm.find();
+async function getAll(ownerid) {
+  console.log("value",ownerid);
+  data = await Wpm.find({ownerid: ownerid}).sort( { createdAt: -1 } );
+  console.log("data",data);
+  return data;
 }
 
 async function getAllranking() {
