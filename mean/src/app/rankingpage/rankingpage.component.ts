@@ -13,7 +13,7 @@ export class RankingpageComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.authService.getdata().subscribe(values =>{
+    this.authService.getAllranking().subscribe(values =>{
       for (let i = 0; i < values.length; i++) {
         this.wpms.push(values[i]);
         this.num.push(i);

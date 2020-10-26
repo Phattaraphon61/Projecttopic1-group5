@@ -10,8 +10,13 @@ module.exports = router;
 router.route('/insert').post(asyncHandler(insert));
 // router.route('/get/:sid(\d+)').get(asyncHandler(get));
 router.route('/all').get(asyncHandler(getAll));
+router.route('/getAllranking').get(asyncHandler(getAllranking));
 // router.route('/search').get(asyncHandler(search));
 
+async function getAllranking(req, res){
+  let all_students = await wpmCtrl.getAllranking();
+  res.json(all_students);
+}
 
 async function insert(req, res) {
   let student = await wpmCtrl.insert(req.body);

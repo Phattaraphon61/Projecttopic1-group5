@@ -60,6 +60,13 @@ export class AuthService {
       )
   }
 
+  getAllranking(){
+    return this.http
+      .get('/api/wpm/getAllranking').pipe(
+        map(res => res)
+      )
+  }
+
   register(
     fullname: string,
     email: string,

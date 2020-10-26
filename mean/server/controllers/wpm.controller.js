@@ -1,5 +1,7 @@
 const Joi = require('joi');
 const Wpm = require('../models/wpm.model');
+const Ranking = require("../models/ranking.model");
+const { isValidObjectId } = require('mongoose');
 
 const wpmSchema = Joi.object({
   ownerid:Joi.string().required(),
@@ -14,11 +16,23 @@ module.exports = {
   // get,
   getAll,
   // search,
+  getAllranking,
 }
 
 async function insert(wpm) {
   wpm = await Joi.validate(wpm, wpmSchema, { abortEarly: false });
+  ranking =  await Ranking.find({ownerid: wpm.ownerid})
+  console.log("ranking",ranking)
+  if (ranking.length == 0){
+    await new Ranking(wpm).save();
+
+  }if(ranking.length !== 0){
+    if(ranking[0].wpm <= wpm.wpm){
+    await Ranking.update({_id: ranking[0]._id},{$set:{wpm:wpm.wpm}});
+  }
+  }
   return await new Wpm(wpm).save();
+
 }
 
 /**
@@ -29,7 +43,11 @@ async function insert(wpm) {
 // }
 
 async function getAll() {
-  return await Wpm.find().sort( { wpm: -1 } );
+  return await Wpm.find();
+}
+
+async function getAllranking() {
+  return await Ranking.find().sort( { wpm: -1 } ).limit(10);
 }
 
 // async function search(key, value) {
