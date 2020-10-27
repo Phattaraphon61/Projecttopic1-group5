@@ -27,7 +27,6 @@ async function delhistory(_id){
 async function insert(wpm) {
   wpm = await Joi.validate(wpm, wpmSchema, { abortEarly: false });
   ranking =  await Ranking.find({ownerid: wpm.ownerid})
-  console.log("ranking",ranking)
   if (ranking.length == 0){
     await new Ranking(wpm).save();
 
@@ -48,9 +47,7 @@ async function insert(wpm) {
 // }
 
 async function getAll(ownerid) {
-  console.log("value",ownerid);
   data = await Wpm.find({ownerid: ownerid}).sort( { createdAt: -1 } );
-  console.log("data",data);
   return data;
 }
 

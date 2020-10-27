@@ -114,7 +114,6 @@ export class HomepageComponent {
     return TEXTSTH;
   }
   selects(event:any){
-    console.log(event.target.value)
     if(event.target.value == "TH"){
       this.initText2()
     }else{
@@ -156,11 +155,9 @@ export class HomepageComponent {
     const helper = new JwtHelperService();
     var token = localStorage.authToken;
     const decoded= helper.decodeToken(token);
-    console.log("decodedsssss",decoded)
 
 
     this.authService.insertwpm(`${decoded._id}`,`${decoded.fullname}`,`${decoded.email}`,wpms).subscribe(data =>{
-      console.log("ได้แล้วววว")
     })
   }
 

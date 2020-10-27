@@ -19,13 +19,11 @@ async function insert(req, res) {
 }
 
 async function get(req, res) {
-  console.log("5555555555555555555555")
   let all_students = await studentCtrl.get(req.params['sid']);
   res.json(all_students);
 }
 
 async function getAll(req, res) {
-  console.log("pppp")
   let all_students = await studentCtrl.getAll();
   res.json(all_students);
 }

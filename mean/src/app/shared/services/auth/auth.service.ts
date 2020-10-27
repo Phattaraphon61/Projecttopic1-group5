@@ -68,7 +68,6 @@ export class AuthService {
     )
   }
   gethistory(onwnerid :string){
-    console.log("มาแล้วว",onwnerid)
     return this.http
       .get('/api/wpm/all/'+onwnerid).pipe(
         map(res => res)

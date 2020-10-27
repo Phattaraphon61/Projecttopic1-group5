@@ -15,7 +15,6 @@ router.route('/getAllranking').get(asyncHandler(getAllranking));
 // router.route('/search').get(asyncHandler(search));
 
 async function delhistory(req,res){
-  console.log("ddelelelelelelelele")
   let all_students = await wpmCtrl.delhistory(req.params['_id']);
   res.json(all_students);
 }
@@ -36,9 +35,7 @@ async function insert(req, res) {
 // }
 
 async function getAll(req, res) {
-  console.log("dddddddddddddddddddd",req.params['ownerid'])
   let all_students = await wpmCtrl.getAll(req.params['ownerid']);
-  console.log("tttttt",all_students)
   res.json(all_students);
 }
 
