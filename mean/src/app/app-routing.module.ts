@@ -1,3 +1,4 @@
+import { TestComponent } from './test/test.component';
 import { RankingpageComponent } from './rankingpage/rankingpage.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NgModule } from '@angular/core';
@@ -32,6 +33,9 @@ const routes: Routes = [
   {
     path:'history',
     component:HistorypageComponent,
+  },{
+    path:'test',
+    component:TestComponent,
   }
 ];
 

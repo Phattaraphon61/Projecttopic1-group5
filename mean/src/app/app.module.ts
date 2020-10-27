@@ -19,6 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TestComponent } from './test/test.component';
 
 export function appInitializerFactory(authService: AuthService) {
   return () => authService.checkTheUserOnTheFirstLoad();
@@ -26,7 +27,7 @@ export function appInitializerFactory(authService: AuthService) {
 
 @NgModule({
   imports: [BrowserAnimationsModule, HttpClientModule, SharedModule, AppRoutingModule,BrowserModule,FormsModule,HttpModule,ReactiveFormsModule],
-  declarations: [AppComponent, HeaderComponent, HomeComponent, HomepageComponent, RankingpageComponent, HistorypageComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, HomepageComponent, RankingpageComponent, HistorypageComponent, TestComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

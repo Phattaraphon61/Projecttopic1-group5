@@ -13,7 +13,6 @@ const swaggerDocument = require('./swagger.json');
 const routes = require('../routes/index.route');
 const config = require('./config');
 const passport = require('./passport')
-
 const app = express();
 
 if (config.env === 'development') {
@@ -28,7 +27,7 @@ if (config.frontend == 'react'){
   distDir ='../../dist/' ;
  }
 
-// 
+//
 app.use(express.static(path.join(__dirname, distDir)))
 app.use(/^((?!(api)).)*/, (req, res) => {
   res.sendFile(path.join(__dirname, distDir + '/index.html'));
@@ -39,7 +38,7 @@ console.log(distDir);
 app.use(express.static(path.join(__dirname, '../../node_modules/material-dashboard-react/dist')))
 app.use(/^((?!(api)).)*/, (req, res) => {
 res.sendFile(path.join(__dirname, '../../dist/index.html'));
-}); 
+});
 
 
 app.use(bodyParser.json());
@@ -73,7 +72,7 @@ app.use((err, req, res, next) => {
 
   // customize Joi validation errors
   if (err.isJoi) {
-    err.message = err.details.map(e => e.message).join("; ");
+    err.message = err.details.map(e => e.message).join(";");
     err.status = 400;
   }
 
